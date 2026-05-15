@@ -1,0 +1,95 @@
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.1s, color 0.1s;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#page-wrapper { 
+    margin: auto;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 40px 140px 1fr;
+    gap: 2px 2px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "topnav topnav"
+        "header header"
+        "about-me creations";
+}
+
+#header{
+    text-align: center;
+    line-height: 1em;
+    grid-area: header;
+}
+
+#header > h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2.5em;
+}
+
+#about-me{
+    text-align: justify;
+    grid-area: about-me; 
+}
+
+#creations{
+    text-align: justify;
+    grid-area: creations;
+}
+
+.padded{
+    padding: 0 5% 0 5%;
+}
+
+/*Screen size handling*/
+@media screen and (max-width: 600px) {
+  #page-wrapper { 
+    width: 100%;
+    grid-template-columns: 100%;
+    grid-template-rows: 40px 140px 1fr 1fr;
+    gap: 2px 2px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "topnav"
+        "header"
+        "about-me"
+        "creations";
+    }
+}
+
+/*Dark theme handling*/
+.topnav {
+  overflow: hidden;
+  grid-area: topnav;
+}
+
+.topnav button {
+  float: left;
+  background-color: #37383d;
+  color: #f2f2f2;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  padding: 10px 10px;
+  text-decoration: none;
+  font-size: 14px;
+  transition-duration: 0.2ms;
+}
+
+.topnav button:hover{
+    background-color: #55565b;
+}
+
+:root {
+  --bg-color: #f4f2e9;
+  --text-color: #2f150a;
+  color-scheme: light dark;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1f1715;
+  --text-color: #fffae7;
+}
